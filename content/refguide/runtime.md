@@ -5,7 +5,23 @@ tags: ["studio pro", "runtime"]
 
 ## 1 Introduction
 
-The Mendix Runtime executes the application model that is created in Studio Pro. It serves pages to the Mendix Client, executes microflows, calls web services, generates documents, communicates with the database, and much more.
+The Mendix Runtime consists of two components.
+
+The [Runtime engine](runtime-engine) executes the application model that is created in Studio Pro. It serves pages to the Mendix Client, executes microflows, calls web services, generates documents, and communicates with the database.
+To ensure scalability, performance, and high availability, the runtime engine is stateless. This means that you can run several instances of the runtime engine behind a load-balancer and any runtime engine can handle an end-user request. For more information on load balancing, see [Clustered Mendix Runtime](clustered-mendix-runtime).
+
+At the end of a request, all the committed state will be saved to the database. All the data that the Runtime Client needs, including uncommitted objects, will be returned to the client.
+
+The [Runtime Clients](runtime-client) are the web and mobile clients. These handle the end-user input, local validation, local logic (nanoflows), offline storage and caching, and communication with the runtime server.
+
+{{% image_container width="600" %}}
+![Application Development Platform Architecture](attachments/runtime/mendix-architecture.png)
+{{% /image_container %}}
+
+For more information see:
+
+* [Runtime Engine](runtime-engine)
+* [Runtime Client](runtime-client)
 
 ## 2 Licensing
 
